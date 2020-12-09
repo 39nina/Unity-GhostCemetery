@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GhostManager : MonoBehaviour
 {
@@ -8,8 +9,11 @@ public class GhostManager : MonoBehaviour
     [SerializeField] GameObject ghost = default;
     float distance;
     Vector3 ghostPos;
+    Vector3 playerPos;
     Animator animator;
     GameObject effect;
+    AudioSource audioSource;
+    NavMeshAgent agent;
 
     private void Awake()
     {
@@ -20,16 +24,30 @@ public class GhostManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         ghost.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        // プレイヤーとの距離を計測
-        distance = (player.transform.position - ghostPos).magnitude;
+        // プレイヤーの位置
+        playerPos = player.transform.position;
 
-        if (ghost) // 死亡アニメーション以降はチェックしないようにするため
+        // プレイヤーとの距離を計測
+        distance = (playerPos - ghostPos).magnitude;
+
+        if(ghost) // 死亡アニメーション以降はチェックしないようにするため
         {
             Appear();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // ゴーストが存在していてフィールドに出現している場合、プレイヤーを追いかける
+        if (ghost && ghost.activeSelf == true)
+        {
+            agent.destination = playerPos;
         }
     }
 
@@ -38,10 +56,11 @@ public class GhostManager : MonoBehaviour
         if(collision.gameObject.tag == "AttackEffect")
         {
             animator.SetTrigger("Death");
+            audioSource.Play();
         }
     }
 
-    // 距離が一定以下になったら出現
+    // プレイヤーとの距離が一定以下になったらゴーストをフィールドに出現させる
     void Appear()
     {
         if(distance <= 7)

@@ -382,7 +382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5214420862771083884}
   - component: {fileID: 4072565973906050931}
-  - component: {fileID: 7072474783136546958}
   - component: {fileID: 4072565973906050932}
   - component: {fileID: 4072565973906050930}
   - component: {fileID: 4072565973906050933}
@@ -429,54 +428,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7072474783136546958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072565973906050935}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8393db73094f5a74d982102344b3c100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transforms:
-  - {fileID: 5214420862771083884}
-  GUIContents:
-  - m_Text: stand
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: walk
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: run
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: damage
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: stun
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: attack01
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: attack02
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: skill01
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: skill02
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: win
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  - m_Text: die
-    m_Image: {fileID: 0}
-    m_Tooltip: 
 --- !u!114 &4072565973906050932
 MonoBehaviour:
   m_ObjectHideFlags: 0

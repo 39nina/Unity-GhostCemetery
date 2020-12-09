@@ -21190,7 +21190,8 @@ AnimationClip:
   - time: 1.4333333
     functionName: GhostDie
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 7766206449206416843, guid: b7c63acc6b5c244119e191836ea4972e,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

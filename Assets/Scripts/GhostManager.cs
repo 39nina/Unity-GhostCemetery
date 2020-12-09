@@ -30,15 +30,23 @@ public class GhostManager : MonoBehaviour
 
     private void Update()
     {
-        // プレイヤーの位置
+        // プレイヤー、ゴーストのの位置
         playerPos = player.transform.position;
+        ghostPos = this.transform.position;
 
         // プレイヤーとの距離を計測
         distance = (playerPos - ghostPos).magnitude;
 
-        if(ghost) // 死亡アニメーション以降はチェックしないようにするため
+        // ゴーストがフィールドに存在していたら出現条件を確認
+        if(ghost) 
         {
             Appear();
+        }
+
+        // 一定距離以下になったらプレイヤーを攻撃
+        if(distance <= 1.35f)
+        {
+            animator.SetTrigger("Attack");
         }
     }
 
@@ -48,6 +56,7 @@ public class GhostManager : MonoBehaviour
         if (ghost && ghost.activeSelf == true)
         {
             agent.destination = playerPos;
+            transform.LookAt(playerPos);
         }
     }
 
@@ -63,7 +72,7 @@ public class GhostManager : MonoBehaviour
     // プレイヤーとの距離が一定以下になったらゴーストをフィールドに出現させる
     void Appear()
     {
-        if(distance <= 7)
+        if(distance <= 4.5f)
         {
             ghost.SetActive(true);
         }

@@ -23,9 +23,12 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("enemy");
-        target = go.transform;
-        myTransform.LookAt(target);
+        if (GameObject.FindGameObjectWithTag("enemy"))
+        {
+            GameObject go = GameObject.FindGameObjectWithTag("enemy");
+            target = go.transform;
+            myTransform.LookAt(target);
+        }
     }
 
     void Update()

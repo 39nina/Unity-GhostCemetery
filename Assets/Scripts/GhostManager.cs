@@ -60,9 +60,9 @@ public class GhostManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "AttackEffect")
+        if (ghost && other.gameObject.tag == "AttackEffect")
         {
             animator.SetTrigger("Death");
             audioSource.Play();
@@ -72,7 +72,7 @@ public class GhostManager : MonoBehaviour
     // プレイヤーとの距離が一定以下になったらゴーストをフィールドに出現させる
     void Appear()
     {
-        if(distance <= 4.5f)
+        if(distance <= 5.5f)
         {
             ghost.SetActive(true);
         }

@@ -29,6 +29,15 @@ public class PlayerManager : MonoBehaviour
         Run();
     }
 
+    // ゴーストに攻撃されたときアニメーションを変更
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ghost")
+        {
+            animator.SetTrigger("Damage");
+        }
+    }
+
     // 移動時のアニメーション
     void Run()
     {

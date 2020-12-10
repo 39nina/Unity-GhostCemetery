@@ -22530,9 +22530,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1774993580}
   - component: {fileID: 1774993579}
+  - component: {fileID: 1774993581}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22616,6 +22617,20 @@ Transform:
   m_Father: {fileID: 6472515462626946475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1774993581
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774993578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1777997641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26981,6 +26996,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4072565973906050933, guid: 33774516410d24787a8686a90ff4f22f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.8227176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072565973906050933, guid: 33774516410d24787a8686a90ff4f22f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.096910864
+      objectReference: {fileID: 0}
     - target: {fileID: 4072565973906050935, guid: 33774516410d24787a8686a90ff4f22f,
         type: 3}
       propertyPath: m_Name
@@ -27054,9 +27079,9 @@ GameObject:
   - component: {fileID: 6472515462626946475}
   - component: {fileID: 6472515462626946474}
   - component: {fileID: 6472515462626946479}
-  - component: {fileID: 6472515462626946477}
   - component: {fileID: 6472515462626946478}
   - component: {fileID: 6472515462626946473}
+  - component: {fileID: 6472515462626946476}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: enemy
@@ -27114,7 +27139,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6472515462626946477
+--- !u!65 &6472515462626946476
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27125,8 +27150,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6551904, y: 0.7674732, z: 0.6130266}
-  m_Center: {x: 0.004341334, y: 0.9023962, z: 0.038684368}
+  m_Size: {x: 1, y: 0.85405207, z: 0.65671253}
+  m_Center: {x: 0, y: 0.83384967, z: 0.06636572}
 --- !u!82 &6472515462626946478
 AudioSource:
   m_ObjectHideFlags: 0

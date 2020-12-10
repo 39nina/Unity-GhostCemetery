@@ -8,6 +8,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject ghost = default;
     float distance;
+    bool isApeear = false;
     public static int ghostAttack = 5;
     Vector3 ghostPos;
     Vector3 playerPos;
@@ -38,8 +39,8 @@ public class GhostManager : MonoBehaviour
         // プレイヤーとの距離を計測
         distance = (playerPos - ghostPos).magnitude;
 
-        // ゴーストがフィールドに存在していたら出現条件を確認
-        if(ghost) 
+        // ゴーストが出現していない、且つdestroyされていない場合、出現条件を確認
+        if(ghost && isApeear == false) 
         {
             Appear();
         }
@@ -76,6 +77,8 @@ public class GhostManager : MonoBehaviour
         if(distance <= 5.5f)
         {
             ghost.SetActive(true);
+            animator.SetTrigger("Appear");
+            isApeear = true;
         }
     }
 

@@ -62,8 +62,8 @@ public class PlayerManager : MonoBehaviour
     // 攻撃時にエフェクトを生成
     void OnEventFx(GameObject effect)
     {
-        GameObject newSpell = Instantiate(effect, this.transform.position + new Vector3(0, 1.2f, 0), Quaternion.identity);
+        GameObject fire = Instantiate(effect, this.transform.position + new Vector3(0, 1.2f, 0), Quaternion.identity);
 
-        Destroy(newSpell, 1.0f);
+        Destroy(fire, 1.0f);
     }
 }

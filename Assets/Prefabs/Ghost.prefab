@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   ghost: {fileID: 4676313680375808804}
+  ghostRigPelvis: {fileID: 4676313680953890725}
 --- !u!65 &1817030932034481698
 BoxCollider:
   m_ObjectHideFlags: 0

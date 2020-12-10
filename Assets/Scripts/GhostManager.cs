@@ -7,6 +7,7 @@ public class GhostManager : MonoBehaviour
 {
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject ghost = default;
+    [SerializeField] GameObject ghostRigPelvis = default;
     float distance;
     bool isApeear = false;
     public static int ghostAttack = 5;
@@ -86,8 +87,9 @@ public class GhostManager : MonoBehaviour
     public void GhostDie(GameObject deathEffect)
     {
         effect = Instantiate(deathEffect, this.transform.position + new Vector3(0, 1.2f, 0), Quaternion.identity);
-        // エフェクト、サウンドの実行完了のため、ゴースト本体のみ先に消滅させる
+        // エフェクト、サウンドの実行完了のためrigだけ残して他を先に消滅させる
         Destroy(ghost);
+        Destroy(ghostRigPelvis);
         // 数秒後に付属アイテム含めすべてdestroy
         Invoke("DestroyGhostAll", 4.0f);
     }

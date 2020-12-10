@@ -8,6 +8,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject ghost = default;
     float distance;
+    public static int ghostAttack = 5;
     Vector3 ghostPos;
     Vector3 playerPos;
     Animator animator;

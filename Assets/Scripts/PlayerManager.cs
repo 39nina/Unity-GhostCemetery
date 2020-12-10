@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     float x;
     float z;
     float speed = 4.5f;
+    int playerHP = 100;
+    [SerializeField] PlayerUIManager playerUIManager;
 
     private void Start()
     {
@@ -29,12 +31,15 @@ public class PlayerManager : MonoBehaviour
         Run();
     }
 
-    // ゴーストに攻撃されたときアニメーションを変更
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ghost")
         {
+            // ゴーストに攻撃されたときアニメーションを変更
             animator.SetTrigger("Damage");
+            // ゴーストから攻撃を受けた分だけHPを減らし、HPゲージにも反映
+            playerHP -= GhostManager.ghostAttack;
+            playerUIManager.DamageByGhost(playerHP);
         }
     }
 

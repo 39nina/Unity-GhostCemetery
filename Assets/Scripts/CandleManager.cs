@@ -22,8 +22,10 @@ public class CandleManager : MonoBehaviour
 
     private void Update()
     {
-        // プレイヤーとの距離を観測
+        // プレイヤーとの距離を計測
         playerPos = Player.transform.position;
+        // キャンドルの高さがバラバラなので、y座標のみプレイヤーと同じとして設定し直す
+        candlePos = new Vector3(candlePos.x, playerPos.y, candlePos.z);
         distance = (candlePos - playerPos).magnitude;
 
         LightCandle();
@@ -37,7 +39,7 @@ public class CandleManager : MonoBehaviour
             // プレイヤーの点灯アニメーション
             playerManager.LightCandle();
             // アニメーション開始から一拍置いてキャンドル点灯
-            Invoke("LightOnOff", 1.1f);
+            Invoke("LightOnOff", 1.0f);
         }
     }
 

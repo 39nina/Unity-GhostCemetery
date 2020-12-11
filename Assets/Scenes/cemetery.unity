@@ -5188,6 +5188,7 @@ GameObject:
   - component: {fileID: 473034128}
   - component: {fileID: 473034127}
   - component: {fileID: 473034126}
+  - component: {fileID: 473034129}
   m_Layer: 0
   m_Name: candle_small_1_LOD0_BurnOut
   m_TagString: Untagged
@@ -5270,6 +5271,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473034124}
   m_Mesh: {fileID: 4300000, guid: eb20adc9cbed61341b951cc2318f6095, type: 3}
+--- !u!114 &473034129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473034124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 473034124}
+  candle_on1: {fileID: 1734731089}
+  candle_on2: {fileID: 570445406}
+  candle_on3: {fileID: 540659820}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &473144707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1368870696463552, guid: 2c8522ae36e865345a8a8a3312fa3843,
@@ -7260,6 +7278,118 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ff3ef08071b35cb488c4a4824e4ebc4a, type: 3}
+--- !u!1 &631872877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631872878}
+  - component: {fileID: 631872881}
+  - component: {fileID: 631872880}
+  - component: {fileID: 631872879}
+  - component: {fileID: 631872882}
+  m_Layer: 0
+  m_Name: candle_arrangement_5_LOD0_BurnOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &631872878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631872877}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1193404727}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &631872879
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631872877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ff3ef08071b35cb488c4a4824e4ebc4a, type: 3}
+--- !u!23 &631872880
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631872877}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 845bd0e97c3c94c629dc053aefb66fa7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &631872881
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631872877}
+  m_Mesh: {fileID: 4300000, guid: ff3ef08071b35cb488c4a4824e4ebc4a, type: 3}
+--- !u!114 &631872882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631872877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 631872877}
+  candle_on1: {fileID: 1245187555}
+  candle_on2: {fileID: 1303763995}
+  candle_on3: {fileID: 1781363448}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &643995222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1896354284537536, guid: 909850a2b7d38fd46bc643195a603b85,
@@ -8798,6 +8928,7 @@ GameObject:
   - component: {fileID: 780311895}
   - component: {fileID: 780311894}
   - component: {fileID: 780311893}
+  - component: {fileID: 780311896}
   m_Layer: 0
   m_Name: candle_arrangement_5_LOD0_BurnOut
   m_TagString: Untagged
@@ -8880,6 +9011,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780311891}
   m_Mesh: {fileID: 4300000, guid: ff3ef08071b35cb488c4a4824e4ebc4a, type: 3}
+--- !u!114 &780311896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780311891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 780311891}
+  candle_on1: {fileID: 629904178}
+  candle_on2: {fileID: 391267707}
+  candle_on3: {fileID: 1517482070}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &781314668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1283923351219466, guid: 70bd293ab5c583f43b9fbb79cf0bbaff,
@@ -9981,6 +10129,7 @@ GameObject:
   - component: {fileID: 886493228}
   - component: {fileID: 886493227}
   - component: {fileID: 886493226}
+  - component: {fileID: 886493229}
   m_Layer: 0
   m_Name: candle_arrangement_2_LOD0_BurnOut
   m_TagString: Untagged
@@ -10063,6 +10212,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886493224}
   m_Mesh: {fileID: 4300000, guid: 400a560ca85ae5242853e93e2df73ebf, type: 3}
+--- !u!114 &886493229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886493224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 886493224}
+  candle_on1: {fileID: 73353153}
+  candle_on2: {fileID: 328840390}
+  candle_on3: {fileID: 2022497073}
+  Player: {fileID: 8530989026698033537}
 --- !u!1001 &892047084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11913,6 +12079,7 @@ GameObject:
   - component: {fileID: 997147596}
   - component: {fileID: 997147595}
   - component: {fileID: 997147594}
+  - component: {fileID: 997147597}
   m_Layer: 0
   m_Name: candle_arrangement_4_LOD0_BurnOut
   m_TagString: Untagged
@@ -11995,6 +12162,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997147592}
   m_Mesh: {fileID: 4300000, guid: 548c28485f9d64c4cbd64c7a3cf40980, type: 3}
+--- !u!114 &997147597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997147592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 997147592}
+  candle_on1: {fileID: 734937577}
+  candle_on2: {fileID: 968005244}
+  candle_on3: {fileID: 1619743087}
+  Player: {fileID: 8530989026698033537}
 --- !u!1001 &997281193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12495,6 +12679,7 @@ GameObject:
   - component: {fileID: 1028039514}
   - component: {fileID: 1028039513}
   - component: {fileID: 1028039512}
+  - component: {fileID: 1028039515}
   m_Layer: 0
   m_Name: candle_small_3_LOD0_BurnOut
   m_TagString: Untagged
@@ -12577,6 +12762,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028039510}
   m_Mesh: {fileID: 4300000, guid: 626a96464ddfcde4baedd67dc883b993, type: 3}
+--- !u!114 &1028039515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028039510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 1028039510}
+  candle_on1: {fileID: 84648207}
+  candle_on2: {fileID: 1679249000}
+  candle_on3: {fileID: 473144707}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &1028065071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 882af3d2bd9851d488e2ad70b36a8324,
@@ -14549,6 +14751,7 @@ GameObject:
   - component: {fileID: 1186913803}
   - component: {fileID: 1186913802}
   - component: {fileID: 1186913801}
+  - component: {fileID: 1186913804}
   m_Layer: 0
   m_Name: candle_small_3_LOD0_BurnOut
   m_TagString: Untagged
@@ -14631,6 +14834,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186913799}
   m_Mesh: {fileID: 4300000, guid: 626a96464ddfcde4baedd67dc883b993, type: 3}
+--- !u!114 &1186913804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186913799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 121857953}
+  candle_on1: {fileID: 121857953}
+  candle_on2: {fileID: 271326177}
+  candle_on3: {fileID: 1129187803}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &1187327629 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1576245062203156, guid: cfefe93800b928b4abc2273ef54fc021,
@@ -14691,6 +14911,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 8064d5da6874dd240894f27ce37a5260, type: 3}
+--- !u!4 &1193404727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4306367281948314, guid: 8782792f5dfa7c34cb8af18b637f3030,
+    type: 3}
+  m_PrefabInstance: {fileID: 1757144621}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1194321281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15994,6 +16220,7 @@ GameObject:
   - component: {fileID: 1262782262}
   - component: {fileID: 1262782261}
   - component: {fileID: 1262782260}
+  - component: {fileID: 1262782263}
   m_Layer: 0
   m_Name: candle_small_1_LOD0_BurnOut
   m_TagString: Untagged
@@ -16076,6 +16303,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262782258}
   m_Mesh: {fileID: 4300000, guid: eb20adc9cbed61341b951cc2318f6095, type: 3}
+--- !u!114 &1262782263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262782258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 1262782258}
+  candle_on1: {fileID: 842938095}
+  candle_on2: {fileID: 314073477}
+  candle_on3: {fileID: 801216901}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &1264587667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1379011193990284, guid: 47fff40bf4e1f984c9f3e933f6e01954,
@@ -18597,6 +18841,7 @@ GameObject:
   - component: {fileID: 1443685471}
   - component: {fileID: 1443685470}
   - component: {fileID: 1443685469}
+  - component: {fileID: 1443685472}
   m_Layer: 0
   m_Name: candle_arrangement_3_LOD0_BurnOut
   m_TagString: Untagged
@@ -18679,6 +18924,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443685467}
   m_Mesh: {fileID: 4300000, guid: 74b1b64f74f1bad4bbd218e4e170ed09, type: 3}
+--- !u!114 &1443685472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443685467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 1443685467}
+  candle_on1: {fileID: 1783796270}
+  candle_on2: {fileID: 742921952}
+  candle_on3: {fileID: 2108856852}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &1444057012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1477240935076358, guid: 1485bfe614ee0c0429e3715e9b808fc7,
@@ -20026,6 +20288,7 @@ GameObject:
   - component: {fileID: 1518320486}
   - component: {fileID: 1518320485}
   - component: {fileID: 1518320484}
+  - component: {fileID: 1518320487}
   m_Layer: 0
   m_Name: candle_small_3_LOD0_BurnOut
   m_TagString: Untagged
@@ -20108,6 +20371,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518320482}
   m_Mesh: {fileID: 4300000, guid: 626a96464ddfcde4baedd67dc883b993, type: 3}
+--- !u!114 &1518320487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518320482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 1518320482}
+  candle_on1: {fileID: 1792495302}
+  candle_on2: {fileID: 457348803}
+  candle_on3: {fileID: 2076732650}
+  Player: {fileID: 8530989026698033537}
 --- !u!1 &1519552403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1400769204369988, guid: 9bf4f7acff2b63a459b980d7c4c4fc5d,
@@ -23262,6 +23542,7 @@ GameObject:
   - component: {fileID: 1751112998}
   - component: {fileID: 1751112997}
   - component: {fileID: 1751112996}
+  - component: {fileID: 1751112999}
   m_Layer: 0
   m_Name: candle_arrangement_3_LOD0_BurnOut
   m_TagString: Untagged
@@ -23344,6 +23625,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751112994}
   m_Mesh: {fileID: 4300000, guid: 74b1b64f74f1bad4bbd218e4e170ed09, type: 3}
+--- !u!114 &1751112999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751112994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 1751112994}
+  candle_on1: {fileID: 1766095643}
+  candle_on2: {fileID: 1986382928}
+  candle_on3: {fileID: 943842824}
+  Player: {fileID: 8530989026698033537}
 --- !u!1001 &1755022055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23434,6 +23732,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1537387585334098, guid: 8782792f5dfa7c34cb8af18b637f3030, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1567540043652266, guid: 8782792f5dfa7c34cb8af18b637f3030, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -23446,6 +23748,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1660358129755474, guid: 8782792f5dfa7c34cb8af18b637f3030, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1709568973079514, guid: 8782792f5dfa7c34cb8af18b637f3030, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -23457,6 +23763,10 @@ PrefabInstance:
     - target: {fileID: 1791210465703714, guid: 8782792f5dfa7c34cb8af18b637f3030, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791210465703714, guid: 8782792f5dfa7c34cb8af18b637f3030, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1908339052576214, guid: 8782792f5dfa7c34cb8af18b637f3030, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27827,6 +28137,7 @@ GameObject:
   - component: {fileID: 2116486184}
   - component: {fileID: 2116486183}
   - component: {fileID: 2116486182}
+  - component: {fileID: 2116486185}
   m_Layer: 0
   m_Name: candle_arrangement_5_LOD0_BurnOut
   m_TagString: Untagged
@@ -27909,6 +28220,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116486180}
   m_Mesh: {fileID: 4300000, guid: ff3ef08071b35cb488c4a4824e4ebc4a, type: 3}
+--- !u!114 &2116486185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116486180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3d54418b3774af3a59fbaf75bc3ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candle_off: {fileID: 2116486180}
+  candle_on1: {fileID: 519947413}
+  candle_on2: {fileID: 1845475274}
+  candle_on3: {fileID: 428629680}
+  Player: {fileID: 8530989026698033537}
 --- !u!4 &2119931001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1817030932034481701, guid: 95d7a4f68e73c4d1f93cc14e9a66c25d,

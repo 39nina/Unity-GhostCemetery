@@ -66,4 +66,11 @@ public class PlayerManager : MonoBehaviour
 
         Destroy(fire, 1.0f);
     }
+
+    // キャンドル点灯時のアクション
+
+    public void LightCandle()
+    {
+        animator.SetTrigger("Light");
+    }
 }

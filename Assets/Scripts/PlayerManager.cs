@@ -6,17 +6,20 @@ public class PlayerManager : MonoBehaviour
 {
     Rigidbody rb;
     Animator animator;
+    AudioSource audioSource;
     float x;
     float z;
     float speed = 4.5f;
     int playerHP = 100;
     float playerYpos;
     [SerializeField] PlayerUIManager playerUIManager = default;
+    [SerializeField] AudioClip playerDamagedSE = default;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         playerYpos = this.transform.position.y;
     }
 
@@ -39,6 +42,8 @@ public class PlayerManager : MonoBehaviour
         {
             // ゴーストに攻撃されたときアニメーションを変更
             animator.SetTrigger("Damage");
+            // ダメージ音を再生
+            audioSource.PlayOneShot(playerDamagedSE);
             // ゴーストから攻撃を受けた分だけHPを減らし、HPゲージにも反映
             playerHP -= GhostManager.ghostAttack;
             playerUIManager.DamageByGhost(playerHP);

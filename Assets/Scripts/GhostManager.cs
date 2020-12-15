@@ -96,6 +96,12 @@ public class GhostManager : MonoBehaviour
         AttackCollider.enabled = false;
     }
 
+    // ダメージを食らったらプレイヤーに向かってくるのを止める
+    public void StopPosition()
+    {
+        agent.isStopped = true;
+    }
+
     // ダメージを食らったら、dieアニメーション終に自身をdestroyする
     public void GhostDie(GameObject deathEffect)
     {

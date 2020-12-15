@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     float z;
     float speed = 4.5f;
     int playerHP = 100;
-    [SerializeField] PlayerUIManager playerUIManager;
+    [SerializeField] PlayerUIManager playerUIManager = default;
 
     private void Start()
     {
@@ -31,9 +31,9 @@ public class PlayerManager : MonoBehaviour
         Run();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Ghost")
+        if (collision.gameObject.tag == "Ghost")
         {
             // ゴーストに攻撃されたときアニメーションを変更
             animator.SetTrigger("Damage");

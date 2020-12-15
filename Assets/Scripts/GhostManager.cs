@@ -8,6 +8,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject ghost = default;
     [SerializeField] GameObject ghostRigPelvis = default;
+    [SerializeField] Collider AttackCollider = default;
     float distance;
     bool isApeear = false;
     public static int ghostAttack = 5;
@@ -18,9 +19,11 @@ public class GhostManager : MonoBehaviour
     AudioSource audioSource;
     NavMeshAgent agent;
 
+
     private void Awake()
     {
         ghostPos = ghost.transform.position;
+        HideAttack();
     }
 
     private void Start()
@@ -33,7 +36,7 @@ public class GhostManager : MonoBehaviour
 
     private void Update()
     {
-        // プレイヤー、ゴーストのの位置
+        // プレイヤー、ゴーストの位置
         playerPos = player.transform.position;
         ghostPos = this.transform.position;
 
@@ -55,7 +58,7 @@ public class GhostManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // ゴーストが存在していてフィールドに出現している場合、プレイヤーを追いかける
+        // ゴーストが存在していてフィールドに出現している場合、プレイヤーを向いて追いかける
         if (ghost && ghost.activeSelf == true)
         {
             agent.destination = playerPos;
@@ -81,6 +84,16 @@ public class GhostManager : MonoBehaviour
             animator.SetTrigger("Appear");
             isApeear = true;
         }
+    }
+
+    // ボディの判定を有効にしたり無効にしたりする
+    public void ShowAttack()
+    {
+        AttackCollider.enabled = true;
+    }
+    public void HideAttack()
+    {
+        AttackCollider.enabled = false;
     }
 
     // ダメージを食らったら、dieアニメーション終に自身をdestroyする

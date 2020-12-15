@@ -10,12 +10,14 @@ public class PlayerManager : MonoBehaviour
     float z;
     float speed = 4.5f;
     int playerHP = 100;
+    float playerYpos;
     [SerializeField] PlayerUIManager playerUIManager = default;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        playerYpos = this.transform.position.y;
     }
 
     private void Update()
@@ -57,6 +59,16 @@ public class PlayerManager : MonoBehaviour
         {
             animator.SetTrigger("Attack");
         }
+    }
+
+    // 攻撃中は移動できないようにする
+    public void StopMove()
+    {
+        speed = 0;
+    }
+    public void StartMove()
+    {
+        speed = 4.5f;
     }
 
     // 攻撃時にエフェクトを生成

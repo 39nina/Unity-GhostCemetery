@@ -9571,6 +9571,7 @@ MonoBehaviour:
   speed: 7
   lifeDuration: 1
   impactParticle: {fileID: 100010, guid: be96558e672cad14d8b35044fbf91ccc, type: 3}
+  player: {fileID: 4289561213134046386, guid: 3be911d2339bc439297932a372dfbf49, type: 3}
   impactNormal: {x: 0, y: 0, z: 0}
 --- !u!82 &5547624147945402727
 AudioSource:

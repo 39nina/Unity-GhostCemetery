@@ -10,10 +10,12 @@ public class Bullet : MonoBehaviour
     private float lifeTimer;
     private Transform myTransform;
     public GameObject impactParticle;
+    public GameObject player;
 
     [HideInInspector]
     public Vector3 impactNormal;
     private bool hasCollided = false;
+    Vector3 playerForward;
 
     void Awake()
     {
@@ -23,12 +25,9 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag("enemy"))
-        {
-            GameObject go = GameObject.FindGameObjectWithTag("enemy");
-            target = go.transform;
-            myTransform.LookAt(target);
-        }
+        // プレイヤーの正面方向に攻撃を飛ばす
+        playerForward = player.transform.forward;
+        myTransform.LookAt(myTransform.position + playerForward);
     }
 
     void Update()

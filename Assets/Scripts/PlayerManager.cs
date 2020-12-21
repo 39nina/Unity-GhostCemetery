@@ -11,7 +11,8 @@ public class PlayerManager : MonoBehaviour
     float z;
     float speed = 4.5f;
     int playerHP = 100;
-    float playerYpos;
+    Vector3 diff;
+    Vector3 latestPos;
     [SerializeField] PlayerUIManager playerUIManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;
 
@@ -20,7 +21,7 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        playerYpos = this.transform.position.y;
+        latestPos = this.transform.position;
     }
 
     private void Update()
@@ -29,6 +30,10 @@ public class PlayerManager : MonoBehaviour
         z = Input.GetAxisRaw("Vertical") * -1 * speed;
 
         Attack();
+
+        // 前回のフレームから進んだベクトル方向を取得し、次のフレームでのチェックのために現在地をlatestPosに代入
+        diff = transform.position - latestPos;
+        latestPos = transform.position;
     }
 
     private void FixedUpdate()
@@ -50,11 +55,18 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // 移動時のアニメーション
+    // 移動
     void Run()
     {
+        // プレイヤーの移動
         rb.velocity = new Vector3(x, 0, z);
+        // 移動時のアニメーション
         animator.SetFloat("Speed", rb.velocity.magnitude);
+        // 移動ベクトルが0.01以上の時に体の向きを変える 
+        if(diff.magnitude > 0.01f)
+        {
+            transform.rotation = Quaternion.LookRotation(diff);
+        }
     }
 
     // 攻撃時のアニメーション

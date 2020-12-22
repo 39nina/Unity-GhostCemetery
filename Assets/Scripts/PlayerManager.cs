@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     float z;
     float speed = 4.5f;
     int playerHP = 100;
-    Vector3 diff;
+    public Vector3 diff;
     Vector3 latestPos;
     [SerializeField] PlayerUIManager playerUIManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;

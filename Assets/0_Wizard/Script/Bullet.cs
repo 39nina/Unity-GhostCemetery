@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private float lifeTimer;
     private Transform myTransform;
     public GameObject impactParticle;
-    public GameObject player;
+    GameObject player;
 
     [HideInInspector]
     public Vector3 impactNormal;
@@ -25,6 +25,8 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
+        // プレイヤーの特定
+        player = GameObject.Find("Player");
         // プレイヤーの正面方向に攻撃を飛ばす
         playerForward = player.transform.forward;
         myTransform.LookAt(myTransform.position + playerForward);

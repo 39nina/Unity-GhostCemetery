@@ -22,13 +22,16 @@ public class CandleManager : MonoBehaviour
 
     private void Update()
     {
-        // プレイヤーとの距離を計測
-        playerPos = Player.transform.position;
-        // キャンドルの高さがバラバラなので、y座標のみプレイヤーと同じとして設定し直す
-        candlePos = new Vector3(candlePos.x, playerPos.y, candlePos.z);
-        distance = (candlePos - playerPos).magnitude;
+        if (playerManager)
+        {
+            // プレイヤーとの距離を計測
+            playerPos = Player.transform.position;
+            // キャンドルの高さがバラバラなので、y座標のみプレイヤーと同じとして設定し直す
+            candlePos = new Vector3(candlePos.x, playerPos.y, candlePos.z);
+            distance = (candlePos - playerPos).magnitude;
 
-        LightCandle();
+            LightCandle();
+        }
     }
 
     // 一定以下の距離で○ボタンを押すと点灯

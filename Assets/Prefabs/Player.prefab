@@ -130,8 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258ce4e8a8484467abc79755cc142c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cane: {fileID: 0}
+  ghost: {fileID: 0}
   playerUIManager: {fileID: 0}
   playerDamagedSE: {fileID: 8300000, guid: 83ef06b75955d42319df4637c9ae7642, type: 3}
+  mainCamera: {fileID: 0}
 --- !u!54 &609811820989164149
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -625,7 +628,7 @@ Transform:
   m_GameObject: {fileID: 4784008154179682539}
   m_LocalRotation: {x: 0.006291759, y: 0.009350347, z: 0.000012666447, w: 0.9999365}
   m_LocalPosition: {x: -0.076509304, y: 0.004128952, z: 0.0016259754}
-  m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4485095762001481239}
   m_Father: {fileID: 8789675750442244389}

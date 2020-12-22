@@ -9,6 +9,8 @@ public class GhostManager : MonoBehaviour
     [SerializeField] GameObject ghost = default;
     [SerializeField] GameObject ghostRigPelvis = default;
     [SerializeField] Collider AttackCollider = default;
+    GameObject cane;
+    GameObject caneParent;
     float distance;
     bool isApeear = false;
     public static int ghostAttack = 5;
@@ -32,6 +34,8 @@ public class GhostManager : MonoBehaviour
         ghost.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
+        cane = GameObject.Find("dm_weapon");
+        caneParent = GameObject.Find("Bip001 R Hand");
     }
 
     private void Update()
@@ -49,8 +53,8 @@ public class GhostManager : MonoBehaviour
             Appear();
         }
 
-        // 一定距離以下になったらプレイヤーを攻撃
-        if(distance <= 1.35f)
+        // 一定距離以下かつプレイヤーが生きていれば攻撃
+        if(distance <= 1.35f && cane.transform.parent == caneParent.transform)
         {
             animator.SetTrigger("Attack");
         }

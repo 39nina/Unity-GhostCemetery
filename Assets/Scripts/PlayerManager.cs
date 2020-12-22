@@ -13,9 +13,10 @@ public class PlayerManager : MonoBehaviour
     int playerHP = 100;
     Vector3 diff;
     Vector3 latestPos;
+    [SerializeField] GameObject cane = default;
     [SerializeField] PlayerUIManager playerUIManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;
-    [SerializeField] Camera mainCamera;
+    [SerializeField] Camera mainCamera = default;
     Vector3 cameraForward;
 
     private void Start()
@@ -36,6 +37,12 @@ public class PlayerManager : MonoBehaviour
         // 前回のフレームから進んだベクトル方向を取得し、次のフレームでのチェックのために現在地をlatestPosに代入
         diff = transform.position - latestPos;
         latestPos = transform.position;
+
+        // 残りHPが0以下になったらゲームオーバー
+        if(playerHP <= 0)
+        {
+            GameOver();
+        }
     }
 
     private void FixedUpdate()
@@ -108,5 +115,18 @@ public class PlayerManager : MonoBehaviour
     public void LightCandle()
     {
         animator.SetTrigger("Light");
+    }
+
+    // プレイヤーの死亡アニメーション -> ゲームオーバー画面表示
+    void GameOver()
+    {
+        playerHP = 0;
+        animator.SetTrigger("Die");
+    }
+
+    // 死亡時に杖だけ残すため、親子関係を解除して本体は削除
+    public void RemainCane()
+    {
+        cane.transform.parent = GameObject.Find("DieCaneParent").transform;
     }
 }

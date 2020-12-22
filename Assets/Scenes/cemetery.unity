@@ -28965,6 +28965,11 @@ PrefabInstance:
       propertyPath: Attackcollider
       value: 
       objectReference: {fileID: 1647512998}
+    - target: {fileID: 1817030932034481698, guid: 95d7a4f68e73c4d1f93cc14e9a66c25d,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1817030932034481701, guid: 95d7a4f68e73c4d1f93cc14e9a66c25d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29475,6 +29480,11 @@ PrefabInstance:
       propertyPath: playerUIManager
       value: 
       objectReference: {fileID: 314513620}
+    - target: {fileID: 609811820989164147, guid: 3be911d2339bc439297932a372dfbf49,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1626421299}
     - target: {fileID: 8696325081065643883, guid: 3be911d2339bc439297932a372dfbf49,
         type: 3}
       propertyPath: m_LocalPosition.x

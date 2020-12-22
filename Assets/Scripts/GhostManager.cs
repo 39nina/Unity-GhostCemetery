@@ -68,7 +68,8 @@ public class GhostManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (ghost && other.gameObject.tag == "AttackEffect")
+        // プレイヤーの攻撃が当たった時は死亡する
+        if(ghost && other.gameObject.tag == "AttackEffect")
         {
             animator.SetTrigger("Death");
             audioSource.Play();

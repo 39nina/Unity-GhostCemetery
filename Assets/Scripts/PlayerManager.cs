@@ -11,10 +11,12 @@ public class PlayerManager : MonoBehaviour
     float z;
     float speed = 4.5f;
     int playerHP = 100;
-    public Vector3 diff;
+    Vector3 diff;
     Vector3 latestPos;
     [SerializeField] PlayerUIManager playerUIManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;
+    [SerializeField] Camera mainCamera;
+    Vector3 cameraForward;
 
     private void Start()
     {
@@ -58,8 +60,13 @@ public class PlayerManager : MonoBehaviour
     // 移動
     void Run()
     {
+        // カメラの方向取得
+        cameraForward = Vector3.Scale(mainCamera.transform.forward, new Vector3(1, 0, 1).normalized);
+        // カメラの向きと入力値から移動方向決定
+        Vector3 moveForward = -cameraForward * z + -mainCamera.transform.right * x;
         // プレイヤーの移動
-        rb.velocity = new Vector3(x, 0, z);
+        rb.velocity = moveForward;
+
         // 移動時のアニメーション
         animator.SetFloat("Speed", rb.velocity.magnitude);
         // 移動ベクトルが0.01以上の時に体の向きを変える 

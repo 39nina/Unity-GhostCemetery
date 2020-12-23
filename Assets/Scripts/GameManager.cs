@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject GameOverPanel;
+    [SerializeField] GameObject GameOverPanel = default;
 
     public void ShowGameOver()
     {

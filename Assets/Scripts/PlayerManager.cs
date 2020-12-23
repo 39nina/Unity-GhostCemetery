@@ -118,17 +118,16 @@ public class PlayerManager : MonoBehaviour
         animator.SetTrigger("Light");
     }
 
-    // プレイヤーの死亡アニメーション -> ゲームオーバー画面表示
+    // プレイヤーの死亡アニメーション
     void GameOver()
     {
         playerHP = 0;
         animator.SetTrigger("Die");
-        Invoke("ShowGameOver", 3.0f);
+        Invoke("Destroy", 1.0f);
     }
-    // ゲームオーバー画面を表示するメソッド
-    void ShowGameOver()
+    void Destroy()
     {
-        gameManager.ShowGameOver();
+        Destroy(this.gameObject);
     }
 
     // 死亡時に杖だけ残すため、親子関係を解除して本体は削除

@@ -22,10 +22,13 @@ public class CameraManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.position = player.transform.position + offset;
-        this.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 1.42f, player.transform.position.z));
+        if (player)
+        {
+            this.transform.position = player.transform.position + offset;
+            this.transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 1.42f, player.transform.position.z));
 
-        RotateCamera();
+            RotateCamera();
+        }
     }
 
     void RotateCamera()

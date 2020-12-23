@@ -41,7 +41,10 @@ public class GhostManager : MonoBehaviour
     private void Update()
     {
         // プレイヤー、ゴーストの位置
-        playerPos = player.transform.position;
+        if (player)
+        {
+            playerPos = player.transform.position;
+        }
         ghostPos = this.transform.position;
 
         // プレイヤーとの距離を計測
@@ -54,7 +57,7 @@ public class GhostManager : MonoBehaviour
         }
 
         // 一定距離以下かつプレイヤーが生きていれば攻撃
-        if(distance <= 1.35f && cane.transform.parent == caneParent.transform)
+        if(player && distance <= 1.35f && cane.transform.parent == caneParent.transform)
         {
             animator.SetTrigger("Attack");
         }

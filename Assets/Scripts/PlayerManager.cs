@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     Vector3 latestPos;
     [SerializeField] GameObject cane = default;
     [SerializeField] PlayerUIManager playerUIManager = default;
+    [SerializeField] GameManager gameManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;
     [SerializeField] Camera mainCamera = default;
     Vector3 cameraForward;
@@ -122,6 +123,12 @@ public class PlayerManager : MonoBehaviour
     {
         playerHP = 0;
         animator.SetTrigger("Die");
+        Invoke("ShowGameOver", 3.0f);
+    }
+    // ゲームオーバー画面を表示するメソッド
+    void ShowGameOver()
+    {
+        gameManager.ShowGameOver();
     }
 
     // 死亡時に杖だけ残すため、親子関係を解除して本体は削除

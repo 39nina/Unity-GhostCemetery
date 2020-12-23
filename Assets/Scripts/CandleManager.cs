@@ -9,6 +9,7 @@ public class CandleManager : MonoBehaviour
     [SerializeField] GameObject candle_on2 = default;
     [SerializeField] GameObject candle_on3 = default;
     [SerializeField] GameObject Player = default;
+    GameManager gameManager = default;
     PlayerManager playerManager = default;
     Vector3 candlePos;
     Vector3 playerPos;
@@ -18,6 +19,7 @@ public class CandleManager : MonoBehaviour
     {
         candlePos = this.gameObject.transform.position;
         playerManager = Player.GetComponent<PlayerManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -43,6 +45,9 @@ public class CandleManager : MonoBehaviour
             playerManager.LightCandle();
             // アニメーション開始から一拍置いてキャンドル点灯
             Invoke("LightOnOff", 1.0f);
+
+            // 点灯数を数えるリストを増加
+            gameManager.LightAdd();
         }
     }
 

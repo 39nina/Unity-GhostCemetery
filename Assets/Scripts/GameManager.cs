@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     int number;  // リストLightの何番目まで入ってるか（いくつ点灯済か）
     [SerializeField] DungeonEntranceManager dungeonEntranceManager = default;
     [SerializeField] GameObject player = default;
+    [SerializeField] GameObject RetryButton = default;
 
     private void Update()
     {
@@ -23,6 +25,9 @@ public class GameManager : MonoBehaviour
         {
             Invoke("ShowGameOver", 2.2f);
         }
+
+        // ゲームオーバー画面で○を押したら再スタート
+        RetryWithController();
     }
 
     void EntranceOn()
@@ -40,5 +45,24 @@ public class GameManager : MonoBehaviour
     public void ShowGameOver()
     {
         GameOverPanel.SetActive(true);
+    }
+
+    // ゲームオーバー画面でリトライボタンを押すと再スタート
+    public void Retry()
+    {
+        Invoke("LoadNewGame", 1.0f);
+    }
+    void LoadNewGame()
+    {
+        SceneManager.LoadScene("cemetery");
+    }
+
+    // コントローラーでリトライするためのメソッド（Retryメソッドはボタン押下時兼用）
+    void RetryWithController()
+    {
+        if (RetryButton.activeSelf && Input.GetButtonDown("Light"))
+        {
+            SceneManager.LoadScene("cemetery");
+        }
     }
 }

@@ -15,7 +15,6 @@ public class PlayerManager : MonoBehaviour
     Vector3 latestPos;
     [SerializeField] GameObject cane = default;
     [SerializeField] PlayerUIManager playerUIManager = default;
-    [SerializeField] GameManager gameManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;
     [SerializeField] Camera mainCamera = default;
     Vector3 cameraForward;

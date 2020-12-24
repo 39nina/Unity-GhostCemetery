@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject cane = default;
     [SerializeField] PlayerUIManager playerUIManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;
+    [SerializeField] GameObject gate = default;
     [SerializeField] Camera mainCamera = default;
     Vector3 cameraForward;
 
@@ -42,6 +43,12 @@ public class PlayerManager : MonoBehaviour
         if(playerHP <= 0)
         {
             GameOver();
+        }
+
+        // 入り口のゲート開閉のためにプレイヤーのz位置を設定
+        if(this.transform.position.z <= -2.68)
+        {
+            gate.GetComponent<Animator>().SetTrigger("Close");
         }
     }
 

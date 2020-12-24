@@ -997,6 +997,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 41fdc54abf0bf4c45b4606ab362f9b82, type: 3}
+--- !u!1 &74057472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 060f7579d985ade4787f1f05db77046e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1670137514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &74525221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30708,6 +30714,11 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1185123169}
+    - target: {fileID: 609811820989164147, guid: 3be911d2339bc439297932a372dfbf49,
+        type: 3}
+      propertyPath: gate
+      value: 
+      objectReference: {fileID: 74057472}
     - target: {fileID: 609811820989164151, guid: 3be911d2339bc439297932a372dfbf49,
         type: 3}
       propertyPath: m_Volume

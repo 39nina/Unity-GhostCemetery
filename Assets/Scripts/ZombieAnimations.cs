@@ -63,5 +63,6 @@ public class ZombieAnimations : MonoBehaviour {
     public void AppearZombie()
     {
         this.gameObject.SetActive(true);
+        
     }
 }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     int number;  // リストLightの何番目まで入ってるか（いくつ点灯済か）
     [SerializeField] DungeonEntranceManager dungeonEntranceManager = default;
     [SerializeField] ZombieAnimations zombieAnimations = default;
+    [SerializeField] ZombieUIManager zombieUIManager = default;
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject RetryButton = default;
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     void AppearZombie()
     {
         zombieAnimations.AppearZombie();
+        zombieUIManager.AppearZombieUI();
     }
 
     void EntranceOn()

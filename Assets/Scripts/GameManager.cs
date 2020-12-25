@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public List<bool> Lights = new List<bool>();
     int number;  // リストLightの何番目まで入ってるか（いくつ点灯済か）
     [SerializeField] DungeonEntranceManager dungeonEntranceManager = default;
+    [SerializeField] ZombieAnimations zombieAnimations = default;
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject RetryButton = default;
 
@@ -17,17 +18,24 @@ public class GameManager : MonoBehaviour
     {
         if (number == 13)
         {
+            // 奥のエントランスをアクティブにし、ゾンビを出現させる
             Invoke("EntranceOn", 2.5f);
+            Invoke("AppearZombie", 2.5f);
         }
 
         // プレイヤーが消失したら、数秒後にゲームオーバーメソッドを表示
         if (!player)
         {
-            Invoke("ShowGameOver", 2.2f);
+            Invoke("ShowGameOver", 2.0f);
         }
 
         // ゲームオーバー画面で○かボタンを押したらリスタート
         RetryWithController();
+    }
+
+    void AppearZombie()
+    {
+        zombieAnimations.AppearZombie();
     }
 
     void EntranceOn()

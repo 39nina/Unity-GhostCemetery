@@ -60,19 +60,6 @@ public class GhostManager : MonoBehaviour
         {
             animator.SetTrigger("Attack");
         }
-
-        //if (player)
-        //{
-        //    if (distance <= 1.35f)
-        //    {
-        //        Debug.Log(cane.transform.parent);
-        //        Debug.Log(caneParent.transform);
-        //        if (cane.transform.parent == caneParent.transform)
-        //        {
-        //            animator.SetTrigger("Attack");
-        //        }
-        //    }
-        //}
     }
 
     private void FixedUpdate()

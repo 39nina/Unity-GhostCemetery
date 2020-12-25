@@ -9,8 +9,8 @@ public class GhostManager : MonoBehaviour
     [SerializeField] GameObject ghost = default;
     [SerializeField] GameObject ghostRigPelvis = default;
     [SerializeField] Collider AttackCollider = default;
-    GameObject cane;
-    GameObject caneParent;
+    [SerializeField] GameObject cane = default;
+    [SerializeField] GameObject caneParent = default;
     float distance;
     bool isApeear = false;
     public static int ghostAttack = 5;
@@ -34,8 +34,7 @@ public class GhostManager : MonoBehaviour
         ghost.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
-        cane = GameObject.Find("dm_weapon");
-        caneParent = GameObject.Find("Bip001 R Hand");
+        cane.transform.parent = caneParent.transform;
     }
 
     private void Update()
@@ -57,10 +56,23 @@ public class GhostManager : MonoBehaviour
         }
 
         // 一定距離以下かつプレイヤーが生きていれば攻撃
-        if(player && distance <= 1.35f && cane.transform.parent == caneParent.transform)
+        if (player && distance <= 1.35f && cane.transform.parent == caneParent.transform)
         {
             animator.SetTrigger("Attack");
         }
+
+        //if (player)
+        //{
+        //    if (distance <= 1.35f)
+        //    {
+        //        Debug.Log(cane.transform.parent);
+        //        Debug.Log(caneParent.transform);
+        //        if (cane.transform.parent == caneParent.transform)
+        //        {
+        //            animator.SetTrigger("Attack");
+        //        }
+        //    }
+        //}
     }
 
     private void FixedUpdate()
@@ -73,6 +85,14 @@ public class GhostManager : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            this.GetComponent<Collider>().enabled = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // プレイヤーの攻撃が当たった時は死亡する
@@ -81,6 +101,7 @@ public class GhostManager : MonoBehaviour
             animator.SetTrigger("Death");
             audioSource.Play();
         }
+
     }
 
     // プレイヤーとの距離が一定以下になったらゴーストをフィールドに出現させる

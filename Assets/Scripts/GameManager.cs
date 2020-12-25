@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             Invoke("ShowGameOver", 2.2f);
         }
 
-        // ゲームオーバー画面で○を押したら再スタート
+        // ゲームオーバー画面で○かボタンを押したらリスタート
         RetryWithController();
     }
 

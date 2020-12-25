@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     int playerHP = 100;
     Vector3 diff;
     Vector3 latestPos;
+    public Vector3 target;
     [SerializeField] GameObject cane = default;
     [SerializeField] PlayerUIManager playerUIManager = default;
     [SerializeField] AudioClip playerDamagedSE = default;

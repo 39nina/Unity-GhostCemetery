@@ -130,10 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258ce4e8a8484467abc79755cc142c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {x: 0, y: 0, z: 0}
   cane: {fileID: 0}
-  ghost: {fileID: 0}
   playerUIManager: {fileID: 0}
   playerDamagedSE: {fileID: 8300000, guid: 83ef06b75955d42319df4637c9ae7642, type: 3}
+  gate: {fileID: 0}
   mainCamera: {fileID: 0}
 --- !u!54 &609811820989164149
 Rigidbody:

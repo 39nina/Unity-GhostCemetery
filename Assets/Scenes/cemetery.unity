@@ -1038,13 +1038,14 @@ GameObject:
   - component: {fileID: 25572955}
   - component: {fileID: 19547102}
   - component: {fileID: 19547104}
+  - component: {fileID: 19547105}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &19547102
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1099,6 +1100,102 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &19547105
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19547101}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &19547121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19547067}
   m_LocalRotation: {x: 0.49912265, y: -0.50086725, z: -0.4991312, w: 0.5008759}
-  m_LocalPosition: {x: 0.00000004340437, y: 0.8133365, z: -0.078462176}
+  m_LocalPosition: {x: 0, y: 0.8133365, z: -0.078462176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 19783601}
@@ -1925,6 +2022,13 @@ MonoBehaviour:
   GetHitAnim: {fileID: 7400000, guid: 7faf88e49093433448390b647cc1c46a, type: 3}
   DieAnim: {fileID: 7400000, guid: 3d70d4e1320891e4ba93a693d355fa32, type: 3}
   weapon: {fileID: 19547095}
+  zombieUIManager: {fileID: 1900216360}
+  zombieBody: {fileID: 19547081}
+  zombieWeapon: {fileID: 19547067}
+  deathEffect: {fileID: 5751164329652954696, guid: 97400c28698a04891a6c5940921ef73d,
+    type: 3}
+  ZombieDead: 0
+  damagedSE: {fileID: 8300000, guid: 76599d7121fe04cb98a47cb359befebf, type: 3}
 --- !u!1 &31915326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1319602812857670, guid: 909850a2b7d38fd46bc643195a603b85,
@@ -29124,7 +29228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1900216360
 MonoBehaviour:
   m_ObjectHideFlags: 0

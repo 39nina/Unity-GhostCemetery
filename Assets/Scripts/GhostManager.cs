@@ -88,7 +88,6 @@ public class GhostManager : MonoBehaviour
             animator.SetTrigger("Death");
             audioSource.Play();
         }
-
     }
 
     // プレイヤーとの距離が一定以下になったらゴーストをフィールドに出現させる

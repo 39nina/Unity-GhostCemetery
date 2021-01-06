@@ -16,10 +16,20 @@ public class ZombieAnimations : MonoBehaviour {
 	NavMeshAgent agent;
     Vector3 playerPos;
     [SerializeField] GameObject weapon = default;
+    [SerializeField] ZombieUIManager zombieUIManager = default;
+    [SerializeField] GameObject zombieBody = default;
+    [SerializeField] GameObject zombieWeapon = default;
+    [SerializeField] GameObject deathEffect = default;
+    int ZombieHP = 100;
+    public bool ZombieDead = false;
+    bool zombieRun = true;
+    AudioSource audioSource;
+    public AudioClip damagedSE;
 
-	void Start()
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	void Update() {
@@ -28,10 +38,21 @@ public class ZombieAnimations : MonoBehaviour {
         playerPos = player.transform.position;
 
         // 移動中は走るアニメーションを設定
-        if(this.GetComponent<NavMeshAgent>().speed > 0)
+        if(ZombieHP > 0 && zombieRun == true)
         {
             zombie.GetComponent<Animation>().Play(RunAnim.name);
         }
+
+        // ゾンビのHPが0以下になったら死亡アニメーション
+        if(ZombieDead == false && ZombieHP <= 0)
+        {
+            zombie.GetComponent<Animation>().Play(DieAnim.name);
+            ZombieDead = true;
+            zombie.isStatic = true;
+            Invoke("ZombieDestroy", 2.0f);
+        }
+
+
 
         if (Input.GetKey(KeyCode.Q))
             zombie.GetComponent<Animation>().Play(IdleAnim.name);
@@ -44,9 +65,6 @@ public class ZombieAnimations : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.O))
             zombie.GetComponent<Animation>().Play(GetHitAnim.name);
-
-        if (Input.GetKey(KeyCode.G))
-            zombie.GetComponent<Animation>().Play(DieAnim.name);
     }
 
     private void FixedUpdate()
@@ -62,7 +80,35 @@ public class ZombieAnimations : MonoBehaviour {
 
     public void AppearZombie()
     {
-        this.gameObject.SetActive(true);
-        
+        //this.gameObject.SetActive(true);   
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // プレイヤーの攻撃が当たった時はHPが減少、gethitアニメーションを実行
+        if (other.gameObject.tag == "AttackEffect")
+        {
+            ZombieHP -= 15;
+            zombieUIManager.DamageByPlayer(ZombieHP);
+            // Damaged SEを鳴らす
+            audioSource.PlayOneShot(damagedSE);
+            // ゾンビが走るのを止めてgethitアニメーション
+            zombieRun = false;
+            zombie.GetComponent<Animation>().Play(GetHitAnim.name);
+            Invoke("RunAgain", 0.8f);
+        }
+    }
+
+    void RunAgain()
+    {
+        zombieRun = true;
+    }
+
+
+    void ZombieDestroy()
+        {
+            Destroy(zombieBody);
+            Destroy(zombieWeapon);
+            Instantiate(deathEffect, new Vector3(this.transform.position.x, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
+        }
 }

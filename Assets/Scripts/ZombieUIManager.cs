@@ -13,9 +13,9 @@ public class ZombieUIManager : MonoBehaviour
         ZombieUI.SetActive(true);
     }
 
-    public void DamageByGhost(int hp)
+    public void DamageByPlayer(int hp)
     {
-        // ゴーストから攻撃を受けた分だけHPを減らす
+        // プレイヤーから攻撃を受けた分だけHPを減らす
         HPSlider.GetComponent<Image>().fillAmount = hp * 0.01f;
     }
 }

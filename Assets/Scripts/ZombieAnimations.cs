@@ -112,5 +112,6 @@ public class ZombieAnimations : MonoBehaviour {
         // ゾンビが動かないようにする
         zombieDeath = true;
         agent.isStopped = true;
+        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }

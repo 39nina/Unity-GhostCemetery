@@ -21,8 +21,10 @@ public class ZombieAnimations : MonoBehaviour {
     [SerializeField] GameObject zombieWeapon = default;
     [SerializeField] GameObject deathEffect = default;
     int ZombieHP = 100;
+    float distance;
     public bool ZombieDead = false;
     bool zombieRun = true;
+    bool zombieAttack = false;
     bool zombieDeath = false;
     AudioSource audioSource;
     public AudioClip damagedSE;
@@ -39,7 +41,7 @@ public class ZombieAnimations : MonoBehaviour {
         playerPos = player.transform.position;
 
         // 移動中は走るアニメーションを設定
-        if(ZombieHP > 0 && zombieRun == true)
+        if(ZombieHP > 0 && zombieRun == true && zombieAttack == false)
         {
             zombie.GetComponent<Animation>().Play(RunAnim.name);
         }
@@ -53,6 +55,12 @@ public class ZombieAnimations : MonoBehaviour {
             Invoke("ZombieDestroy", 2.0f);
         }
 
+        // プレイヤーと一定距離以下になったら攻撃
+        distance = (playerPos - this.transform.position).magnitude;
+        if (zombieAttack == false && distance <= 1.8)
+        {
+            Attack();
+        }
 
 
         if (Input.GetKey(KeyCode.Q))
@@ -100,11 +108,22 @@ public class ZombieAnimations : MonoBehaviour {
         }
     }
 
+    void Attack()
+    {
+        zombieAttack = true;
+        zombie.GetComponent<Animation>().Play(AttackAnim.name);
+        Invoke("EndAttack", 2.0f);
+    }
+
+    void EndAttack()
+    {
+        zombieAttack = false;
+    }
+
     void RunAgain()
     {
         zombieRun = true;
     }
-
 
     void ZombieDestroy()
     {

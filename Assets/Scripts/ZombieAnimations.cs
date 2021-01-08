@@ -23,6 +23,7 @@ public class ZombieAnimations : MonoBehaviour {
     int ZombieHP = 100;
     public bool ZombieDead = false;
     bool zombieRun = true;
+    bool zombieDeath = false;
     AudioSource audioSource;
     public AudioClip damagedSE;
 
@@ -70,8 +71,8 @@ public class ZombieAnimations : MonoBehaviour {
     private void FixedUpdate()
     {
 
-        // ゾンビがフィールドに出現している場合、プレイヤーを向いて追いかける
-        if (zombie.activeSelf == true)
+        // ゾンビがフィールドに出現していて死んでいない場合、プレイヤーを向いて追いかける
+        if (zombie.activeSelf == true && zombieDeath == false)
         {
             agent.destination = playerPos;
             transform.LookAt(playerPos);
@@ -106,9 +107,10 @@ public class ZombieAnimations : MonoBehaviour {
 
 
     void ZombieDestroy()
-        {
-            Destroy(zombieBody);
-            Destroy(zombieWeapon);
-            Instantiate(deathEffect, new Vector3(this.transform.position.x, this.transform.position.y + 2, this.transform.position.z), Quaternion.identity);
-        }
+    {
+        Instantiate(deathEffect, new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z), Quaternion.identity);
+        // ゾンビが動かないようにする
+        zombieDeath = true;
+        agent.isStopped = true;
+    }
 }

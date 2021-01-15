@@ -7,13 +7,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject GameOverPanel = default;
+    [SerializeField] GameObject GameClearPanel = default;
     public List<bool> Lights = new List<bool>();
     int number;  // リストLightの何番目まで入ってるか（いくつ点灯済か）
     [SerializeField] DungeonEntranceManager dungeonEntranceManager = default;
     [SerializeField] ZombieManager ZombieManager = default;
     [SerializeField] ZombieUIManager zombieUIManager = default;
     [SerializeField] GameObject player = default;
-    [SerializeField] GameObject RetryButton = default;
+    [SerializeField] GameObject RetryButton1 = default;
+    [SerializeField] GameObject RetryButton2 = default;
+    GameObject zombieDeathEffect;
 
     private void Update()
     {
@@ -25,9 +28,17 @@ public class GameManager : MonoBehaviour
         }
 
         // プレイヤーが消失したら、数秒後にゲームオーバーメソッドを表示
-        if (!player)
+        if (!player && GameClearPanel.activeSelf == false)
         {
             Invoke("ShowGameOver", 2.0f);
+        }
+
+        // ゾンビが倒れたら、数秒後にゲームオーバーメソッドを表示
+        // ゾンビが死んだ時のエフェクトを取得
+        zombieDeathEffect = GameObject.Find("SoulSuperEvilDeath(Clone)");
+        if (zombieDeathEffect && GameOverPanel.activeSelf == false)
+        {
+            Invoke("ShowGameClear", 2.0f);
         }
 
         // ゲームオーバー画面で○かボタンを押したらリスタート
@@ -57,6 +68,12 @@ public class GameManager : MonoBehaviour
         GameOverPanel.SetActive(true);
     }
 
+    // ゲームクリア画面を表示するメソッド
+    public void ShowGameClear()
+    {
+        GameClearPanel.SetActive(true);
+    }
+
     // ゲームオーバー画面でリトライボタンを押すと再スタート
     public void Retry()
     {
@@ -70,7 +87,7 @@ public class GameManager : MonoBehaviour
     // コントローラーでリトライするためのメソッド（Retryメソッドはボタン押下時兼用）
     void RetryWithController()
     {
-        if (RetryButton.activeSelf && Input.GetButtonDown("Light"))
+        if ((RetryButton1.activeSelf || RetryButton2.activeSelf) && Input.GetButtonDown("Light"))
         {
             SceneManager.LoadScene("cemetery");
         }

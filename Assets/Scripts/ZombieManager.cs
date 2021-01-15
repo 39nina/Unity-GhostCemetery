@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZombieAnimations : MonoBehaviour {
+public class ZombieManager : MonoBehaviour {
 
 	public GameObject zombie;
     public GameObject player;
@@ -21,6 +21,7 @@ public class ZombieAnimations : MonoBehaviour {
     [SerializeField] GameObject zombieWeapon = default;
     [SerializeField] GameObject deathEffect = default;
     int ZombieHP = 100;
+    public static int zombieAttackHP = 15;
     float distance;
     public bool ZombieDead = false;
     bool zombieRun = true;
@@ -38,7 +39,10 @@ public class ZombieAnimations : MonoBehaviour {
 	void Update() {
 
         // プレイヤーの現在地を取得
-        playerPos = player.transform.position;
+        if (player)
+        {
+            playerPos = player.transform.position;
+        }
 
         // 移動中は走るアニメーションを設定
         if(ZombieHP > 0 && zombieRun == true && zombieAttack == false)
@@ -112,12 +116,16 @@ public class ZombieAnimations : MonoBehaviour {
     {
         zombieAttack = true;
         zombie.GetComponent<Animation>().Play(AttackAnim.name);
-        Invoke("EndAttack", 2.0f);
+        // Attackアニメーション中でプレイヤーに攻撃が当たっていない間、weaponのisTriggerをオフにする
+        weapon.GetComponent<MeshCollider>().isTrigger = false;
+        Invoke("EndAttack", 1.5f);
     }
 
     void EndAttack()
     {
         zombieAttack = false;
+        // Attackアニメーションが終わったら武器のisTriggerを無効にする
+        weapon.GetComponent<MeshCollider>().isTrigger = false;
     }
 
     void RunAgain()

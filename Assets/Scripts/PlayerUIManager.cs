@@ -7,9 +7,15 @@ public class PlayerUIManager : MonoBehaviour
 {
     [SerializeField] GameObject HPSlider = default;
 
+    // ゴーストから攻撃を受けた分だけHPを減らす
     public void DamageByGhost(int hp)
     {
-        // ゴーストから攻撃を受けた分だけHPを減らす
+        HPSlider.GetComponent<Image>().fillAmount = hp * 0.01f;
+    }
+
+    // ゾンビから攻撃を受けた分だけHPを減らす
+    public void DamagedByZombie(int hp)
+    {
         HPSlider.GetComponent<Image>().fillAmount = hp * 0.01f;
     }
 }

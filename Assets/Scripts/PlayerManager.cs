@@ -70,6 +70,18 @@ public class PlayerManager : MonoBehaviour
             playerHP -= GhostManager.ghostAttack;
             playerUIManager.DamageByGhost(playerHP);
         }
+
+        // ゾンビに攻撃を受けた時に、gethitアニメーションを実行
+        if (collision.gameObject.tag == "Weapon")
+        {
+            // ゾンビに攻撃されたときアニメーションを変更
+            animator.SetTrigger("Damage");
+            // ダメージ音を再生
+            audioSource.PlayOneShot(playerDamagedSE);
+            // ゾンビから攻撃を受けた分だけHPを減らし、HPゲージにも反映
+            playerHP -= ZombieManager.zombieAttackHP;
+            playerUIManager.DamagedByZombie(playerHP);
+        }
     }
 
     // 移動

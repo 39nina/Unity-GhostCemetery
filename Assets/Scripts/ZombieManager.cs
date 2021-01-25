@@ -65,6 +65,19 @@ public class ZombieManager : MonoBehaviour {
         {
             Attack();
         }
+
+
+        if (Input.GetKey(KeyCode.Q))
+            zombie.GetComponent<Animation>().Play(IdleAnim.name);
+
+        if (Input.GetKey(KeyCode.R))
+            zombie.GetComponent<Animation>().Play(RunAnim.name);
+
+		if (Input.GetKey(KeyCode.T))
+			zombie.GetComponent<Animation>().Play(AttackAnim.name);
+
+		if (Input.GetKey(KeyCode.O))
+            zombie.GetComponent<Animation>().Play(GetHitAnim.name);
     }
 
     private void FixedUpdate()
@@ -80,7 +93,7 @@ public class ZombieManager : MonoBehaviour {
 
     public void AppearZombie()
     {
-        //this.gameObject.SetActive(true);   
+        this.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -103,15 +116,16 @@ public class ZombieManager : MonoBehaviour {
     {
         zombieAttack = true;
         zombie.GetComponent<Animation>().Play(AttackAnim.name);
-        // Attackアニメーション中でプレイヤーに攻撃が当たっていない間、weaponのisTriggerをオフにする
-        weapon.GetComponent<MeshCollider>().isTrigger = false;
-        Invoke("EndAttack", 1.5f);
+        // Attackアニメーションが有効かつプレイヤーに攻撃が当たっていない間、weaponのisTriggerをオンにする
+        weapon.GetComponent<MeshCollider>().isTrigger = true;
+        Invoke("EndAttack", 2.0f);
     }
 
     void EndAttack()
     {
         zombieAttack = false;
-        // Attackアニメーションが終わったら武器のisTriggerを無効にする
+        // Attackアニメーションが終わったら武器のisTriggerを有効にする
+        // (Attackアニメーション中にプレイヤーに当たったら、その時点でisTriggerは有効にする)
         weapon.GetComponent<MeshCollider>().isTrigger = false;
     }
 

@@ -16,13 +16,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject RetryButton1 = default;
     [SerializeField] GameObject RetryButton2 = default;
+    [SerializeField] Text CandleNumberUI = default;
+    int currentNumber = 0;
     GameObject zombieDeathEffect;
 
     private void Update()
     {
+        // 点灯済キャンドルのカウント(number)が１つ上がってから１秒後に、表示もカウントアップ
+        if(currentNumber != number)
+        {
+            currentNumber = number;
+            Invoke("changeNumber", 1.1f);
+        }
+
+        // 奥のエントランスをアクティブにし、ゾンビを出現させる
         if (number == 13)
         {
-            // 奥のエントランスをアクティブにし、ゾンビを出現させる
             Invoke("EntranceOn", 2.5f);
             Invoke("AppearZombie", 2.5f);
         }
@@ -43,6 +52,20 @@ public class GameManager : MonoBehaviour
 
         // ゲームオーバー画面で○かボタンを押したらリスタート
         RetryWithController();
+    }
+
+    // 画面上の数字表記を変更
+    void changeNumber()
+    {
+        // 1桁の場合は数字の左にスペースを入れて表示
+        if (number < 10)
+        {
+            CandleNumberUI.text = " " + number.ToString();
+        }
+        else
+        {
+            CandleNumberUI.text = number.ToString();
+        }
     }
 
     void AppearZombie()
@@ -87,7 +110,7 @@ public class GameManager : MonoBehaviour
     // コントローラーでリトライするためのメソッド（Retryメソッドはボタン押下時兼用）
     void RetryWithController()
     {
-        if ((RetryButton1.activeSelf || RetryButton2.activeSelf) && Input.GetButtonDown("Light"))
+        if ((RetryButton1.activeInHierarchy || RetryButton2.activeInHierarchy) && Input.GetButtonDown("Light"))
         {
             SceneManager.LoadScene("cemetery");
         }

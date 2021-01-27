@@ -989,7 +989,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19547095}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -34685,6 +34685,11 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 74057472}
+    - target: {fileID: 609811820989164147, guid: 3be911d2339bc439297932a372dfbf49,
+        type: 3}
+      propertyPath: GameStartPanel
+      value: 
+      objectReference: {fileID: 153342825}
     - target: {fileID: 609811820989164149, guid: 3be911d2339bc439297932a372dfbf49,
         type: 3}
       propertyPath: m_Constraints

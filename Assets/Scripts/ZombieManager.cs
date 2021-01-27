@@ -117,8 +117,8 @@ public class ZombieManager : MonoBehaviour {
         zombieAttack = true;
         zombie.GetComponent<Animation>().Play(AttackAnim.name);
         // Attackアニメーションが有効かつプレイヤーに攻撃が当たっていない間、weaponのisTriggerをオンにする
-        weapon.GetComponent<MeshCollider>().isTrigger = true;
-        Invoke("EndAttack", 2.0f);
+        weapon.GetComponent<MeshCollider>().isTrigger = false;
+        Invoke("EndAttack", 1.5f);
     }
 
     void EndAttack()

@@ -11,6 +11,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] Collider AttackCollider = default;
     [SerializeField] GameObject cane = default;
     [SerializeField] GameObject caneParent = default;
+    [SerializeField] GameObject ExplanationText = default;
     float distance;
     bool isApeear = false;
     public static int ghostAttack = 5;
@@ -20,7 +21,6 @@ public class GhostManager : MonoBehaviour
     GameObject effect;
     AudioSource audioSource;
     NavMeshAgent agent;
-
 
     private void Awake()
     {
@@ -39,6 +39,7 @@ public class GhostManager : MonoBehaviour
 
     private void Update()
     {
+
         // プレイヤー、ゴーストの位置
         if (player)
         {

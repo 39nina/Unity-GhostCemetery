@@ -17,13 +17,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject RetryButton1 = default;
     [SerializeField] GameObject RetryButton2 = default;
     [SerializeField] Text CandleNumberUI = default;
+    [SerializeField] GameObject GameStartPanel = default;
     int currentNumber = 0;
     GameObject zombieDeathEffect;
 
     private void Update()
     {
+        // ゲームスタートの説明画面を次に送る
+        if (GameStartPanel.activeSelf == true && Input.GetButtonDown("Light"))
+        {
+            GameStartPanel.SetActive(false);
+        }
+
         // 点灯済キャンドルのカウント(number)が１つ上がってから１秒後に、表示もカウントアップ
-        if(currentNumber != number)
+        if (currentNumber != number)
         {
             currentNumber = number;
             Invoke("changeNumber", 1.1f);

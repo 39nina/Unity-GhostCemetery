@@ -70,14 +70,6 @@ public class ZombieManager : MonoBehaviour {
         if (Input.GetKey(KeyCode.Q))
             zombie.GetComponent<Animation>().Play(IdleAnim.name);
 
-        if (Input.GetKey(KeyCode.R))
-            zombie.GetComponent<Animation>().Play(RunAnim.name);
-
-		if (Input.GetKey(KeyCode.T))
-			zombie.GetComponent<Animation>().Play(AttackAnim.name);
-
-		if (Input.GetKey(KeyCode.O))
-            zombie.GetComponent<Animation>().Play(GetHitAnim.name);
     }
 
     private void FixedUpdate()

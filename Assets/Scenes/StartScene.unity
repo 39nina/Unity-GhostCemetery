@@ -507,7 +507,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Ghost
 
-    Cemetary'
+    Cemetery'
 --- !u!222 &958896497
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public class ZombieManager : MonoBehaviour {
         }
 
         // 移動中は走るアニメーションを設定
-        if(ZombieHP > 0 && zombieRun == true && zombieAttack == false)
+        if(ZombieHP > 0 && zombieRun == true && zombieAttack == false && ZombieDead == false)
         {
             zombie.GetComponent<Animation>().Play(RunAnim.name);
         }
@@ -61,7 +61,7 @@ public class ZombieManager : MonoBehaviour {
 
         // プレイヤーと一定距離以下になったら攻撃
         distance = (playerPos - this.transform.position).magnitude;
-        if (zombieAttack == false && distance <= 1.8)
+        if (zombieAttack == false && distance <= 1.8 && ZombieDead == false)
         {
             Attack();
         }

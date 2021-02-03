@@ -9,11 +9,17 @@ public class ZombieAppearGameManager : MonoBehaviour
 
     [SerializeField] GameObject EntranceBurnOut = default;
     [SerializeField] GameObject EntranceLight = default;
+    [SerializeField] FadeController fadeController = default;
 
     private void Start()
     {
         Invoke("EntranceLighted", 0.0f);
         Invoke("ChangeZombieBattleScene", 7.5f);
+    }
+
+    private void Update()
+    {
+        Invoke("ZombieAppearFadeOut", 6.4f);
     }
 
     void EntranceLighted()
@@ -25,5 +31,10 @@ public class ZombieAppearGameManager : MonoBehaviour
     void ChangeZombieBattleScene()
     {
         SceneManager.LoadScene("ZombieBattleScene");
+    }
+
+    void ZombieAppearFadeOut()
+    {
+        fadeController.StartFadeOut();
     }
 }

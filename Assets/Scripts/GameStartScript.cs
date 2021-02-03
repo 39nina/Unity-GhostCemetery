@@ -5,18 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class GameStartScript : MonoBehaviour
 {
+    [SerializeField] GameObject doorSE = default;
+    [SerializeField] FadeController fadeController = default;
+    bool fadeOutStart = false;
 
-    // コントローラでスタートする用の関数
     private void Update()
     {
+        // スタートボタンが押されたら音＋フェードアウトが始まり、暗転したタイミングでシーン切り替え
         if (Input.GetButtonDown("Light"))
         {
-            SceneManager.LoadScene("cemetery");
+            doorSE.GetComponent<AudioSource>().Play();
+            fadeOutStart = true;
+            Invoke("GameStart", 1.5f);
         }
+
+        // フェードアウト開始フラグがtrueになったら、updateでフェードアウト関数を呼び出す
+        if(fadeOutStart == true)
+        {
+            fadeController.StartFadeOut();
+        }
+
     }
 
-    // 画面上をクリックした際にゲームスタートする用の関数
-    public void GameStartButton()
+    void GameStart()
     {
         SceneManager.LoadScene("cemetery");
     }

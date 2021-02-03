@@ -5,23 +5,18 @@ using UnityEngine.UI;
 
 public class FadeController : MonoBehaviour
 {
-    float fadeSpeed = 0.1f;
+    public float fadeSpeed = 0.1f;
     float alfa;　　// 透明度を管理する変数
     public bool isFadeOut = true;
     Image fadeImage;
 
     void Start()
     {
-        fadeImage = GetComponent<Image>();
+        fadeImage = this.gameObject.GetComponent<Image>();
         alfa = fadeImage.color.a;
     }
 
-    void Update()
-    {
-        Invoke("StartFadeOut", 6.4f);
-    }
-
-    void StartFadeOut()
+    public void StartFadeOut()
     {
     if (isFadeOut)
     {

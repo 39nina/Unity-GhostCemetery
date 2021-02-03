@@ -10794,6 +10794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntranceBurnOut: {fileID: 1222527042}
   EntranceLight: {fileID: 99812394}
+  fadeController: {fileID: 1392330732}
 --- !u!1 &794357732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1477240935076358, guid: 1485bfe614ee0c0429e3715e9b808fc7,

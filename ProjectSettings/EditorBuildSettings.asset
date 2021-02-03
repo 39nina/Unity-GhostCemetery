@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cemetery.unity
     guid: de57ac571399879489436f4f9c5342f7
+  - enabled: 1
+    path: Assets/Scenes/ZombieAppearScene.unity
+    guid: 687b5453e1886450e808fbc354c3afdd
+  - enabled: 1
+    path: Assets/Scenes/ZombieBattleScene.unity
+    guid: c9214521bfcab4e14bc04b4a95b6b634
   m_configObjects: {}

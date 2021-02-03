@@ -20,6 +20,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject GameStartPanel = default;
     int currentNumber = 0;
     GameObject zombieDeathEffect;
+    zombieBGMManager zombieBGMManager;
+
+    private void Start()
+    {
+        // ZombieBattleSceneでは、ゾンビBGMを取得
+        if(CandleNumberUI.text == "13")
+        {
+            zombieBGMManager = GameObject.Find("BGM").GetComponent<zombieBGMManager>();
+        }
+    }
 
     private void Update()
     {
@@ -95,12 +105,14 @@ public class GameManager : MonoBehaviour
     // ゲームオーバー画面を表示するメソッド
     public void ShowGameOver()
     {
+        zombieBGMManager.ZombieBGMStop();
         GameOverPanel.SetActive(true);
     }
 
     // ゲームクリア画面を表示するメソッド
     public void ShowGameClear()
     {
+        zombieBGMManager.ZombieBGMStop();
         GameClearPanel.SetActive(true);
     }
 

@@ -19,7 +19,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] AudioClip playerDamagedSE = default;
     [SerializeField] GameObject gate = default;
     [SerializeField] Camera mainCamera = default;
-    [SerializeField] GameObject GameStartPanel = default;
     Vector3 cameraForward;
 
     private void Start()
@@ -32,11 +31,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameStartPanel.activeSelf == false)
-        {
-            x = Input.GetAxisRaw("Horizontal") * speed;
-            z = Input.GetAxisRaw("Vertical") * -1 * speed;
-        }
+        x = Input.GetAxisRaw("Horizontal") * speed;
+        z = Input.GetAxisRaw("Vertical") * -1 * speed;
 
         Attack();
 
@@ -110,7 +106,7 @@ public class PlayerManager : MonoBehaviour
     // 攻撃時のアニメーション
     void Attack()
     {
-        if (GameStartPanel.activeSelf == false && Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack"))
         {
             animator.SetTrigger("Attack");
         }

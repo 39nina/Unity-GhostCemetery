@@ -11,13 +11,10 @@ public class GameManager : MonoBehaviour
     public List<bool> Lights = new List<bool>();
     int number;  // リストLightの何番目まで入ってるか（いくつ点灯済か）
     [SerializeField] DungeonEntranceManager dungeonEntranceManager = default;
-    [SerializeField] ZombieManager ZombieManager = default;
-    [SerializeField] ZombieUIManager zombieUIManager = default;
     [SerializeField] GameObject player = default;
     [SerializeField] GameObject RetryButton1 = default;
     [SerializeField] GameObject RetryButton2 = default;
     [SerializeField] Text CandleNumberUI = default;
-    [SerializeField] GameObject GameStartPanel = default;
     int currentNumber = 0;
     GameObject zombieDeathEffect;
     zombieBGMManager zombieBGMManager;
@@ -33,12 +30,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // ゲームスタートの説明画面を次に送る
-        if (GameStartPanel.activeSelf == true && Input.GetButtonDown("Light"))
-        {
-            GameStartPanel.SetActive(false);
-        }
-
         // 点灯済キャンドルのカウント(number)が１つ上がってから１秒後に、表示もカウントアップ
         if (currentNumber != number)
         {
@@ -83,12 +74,6 @@ public class GameManager : MonoBehaviour
         {
             CandleNumberUI.text = number.ToString();
         }
-    }
-
-    void AppearZombie()
-    {
-        ZombieManager.AppearZombie();
-        zombieUIManager.AppearZombieUI();
     }
 
     void EntranceOn()

@@ -11,7 +11,6 @@ public class GhostManager : MonoBehaviour
     [SerializeField] Collider AttackCollider = default;
     [SerializeField] GameObject cane = default;
     [SerializeField] GameObject caneParent = default;
-    [SerializeField] GameObject ExplanationText = default;
     float distance;
     bool isApeear = false;
     public static int ghostAttack = 5;

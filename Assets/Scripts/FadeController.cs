@@ -22,7 +22,7 @@ public class FadeController : MonoBehaviour
     private void FixedUpdate()
     {
         // メインゲームシーンの場合は、シーン開始時にフェードインからスタート
-        if (SceneManager.GetActiveScene().name == "cemetery" && isFadeIn)
+        if ((SceneManager.GetActiveScene().name == "cemetery" || SceneManager.GetActiveScene().name == "ZombieBattleScene") && isFadeIn)
         {
             StartFadeIn();
         }

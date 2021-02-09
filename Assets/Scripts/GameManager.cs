@@ -15,9 +15,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject RetryButton1 = default;
     [SerializeField] GameObject RetryButton2 = default;
     [SerializeField] Text CandleNumberUI = default;
+    [SerializeField] GameObject clearIcon = default;
     int currentNumber = 0;
     GameObject zombieDeathEffect;
     zombieBGMManager zombieBGMManager;
+    [SerializeField] FadeController fadeController;
 
     private void Start()
     {
@@ -37,13 +39,13 @@ public class GameManager : MonoBehaviour
             Invoke("changeNumber", 1.1f);
         }
 
-        // 奥のエントランスをアクティブにし、ゾンビを出現させる
+        // すべてのキャンドルに点灯が完了したら、クリアマークを表示し、フェードアウトしてゾンビシーンに遷移
         if (number == 13)
         {
-            dungeonEntranceManager.EntranceOn();
-            // フェードアウト
-
-            Invoke("LoatToAppearZombie", 0.5f);
+            Invoke("ActiveClearIcon", 1.1f);
+            // フェードアウトしたあとにゾンビ登場ムービーに遷移
+            Invoke("FadeOutToZombieScene", 2.8f);
+            Invoke("LoatToAppearZombie", 3.3f);
         }
 
         // プレイヤーが消失したら、数秒後にゲームオーバーメソッドを表示
@@ -117,6 +119,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 全キャンドル点灯後の各アクション
+    void ActiveClearIcon()
+    {
+        clearIcon.SetActive(true);
+    }
+    void FadeOutToZombieScene()
+    {
+        fadeController.StartFadeOut();
+    }
     void LoatToAppearZombie()
     {
         SceneManager.LoadScene("ZombieAppearScene");

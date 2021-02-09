@@ -40,8 +40,10 @@ public class GameManager : MonoBehaviour
         // 奥のエントランスをアクティブにし、ゾンビを出現させる
         if (number == 13)
         {
-            Invoke("EntranceOn", 2.5f);
-            Invoke("AppearZombie", 2.5f);
+            dungeonEntranceManager.EntranceOn();
+            // フェードアウト
+
+            Invoke("LoatToAppearZombie", 0.5f);
         }
 
         // プレイヤーが消失したら、数秒後にゲームオーバーメソッドを表示
@@ -74,11 +76,6 @@ public class GameManager : MonoBehaviour
         {
             CandleNumberUI.text = number.ToString();
         }
-    }
-
-    void EntranceOn()
-    {
-        dungeonEntranceManager.EntranceOn();
     }
 
     public void LightAdd()
@@ -118,5 +115,10 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("cemetery");
         }
+    }
+
+    void LoatToAppearZombie()
+    {
+        SceneManager.LoadScene("ZombieAppearScene");
     }
 }

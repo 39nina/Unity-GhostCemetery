@@ -91,7 +91,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 76599d7121fe04cb98a47cb359befebf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.12
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -191,6 +191,8 @@ MonoBehaviour:
   ghost: {fileID: 4676313680375808804}
   ghostRigPelvis: {fileID: 4676313680953890725}
   AttackCollider: {fileID: 4676313680114883717}
+  cane: {fileID: 0}
+  caneParent: {fileID: 0}
 --- !u!65 &1817030932034481698
 BoxCollider:
   m_ObjectHideFlags: 0

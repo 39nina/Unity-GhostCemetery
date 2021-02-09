@@ -18,11 +18,10 @@ public class FadeController : MonoBehaviour
         alfa = fadeImage.color.a;
     }
 
-
-    private void FixedUpdate()
+    private void FixedUpdate() 
     {
         // メインゲームシーンの場合は、シーン開始時にフェードインからスタート
-        if ((SceneManager.GetActiveScene().name == "cemetery" || SceneManager.GetActiveScene().name == "ZombieBattleScene") && isFadeIn)
+        if ((SceneManager.GetActiveScene().name == "cemetery" || SceneManager.GetActiveScene().name == "zombie") && isFadeIn)
         {
             StartFadeIn();
         }

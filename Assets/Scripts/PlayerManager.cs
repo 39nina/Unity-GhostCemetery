@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -15,10 +16,10 @@ public class PlayerManager : MonoBehaviour
     Vector3 latestPos;
     public Vector3 target;
     [SerializeField] GameObject cane = default;
-    [SerializeField] PlayerUIManager playerUIManager = default;
+    PlayerUIManager playerUIManager;
     [SerializeField] AudioClip playerDamagedSE = default;
-    [SerializeField] GameObject gate = default;
     [SerializeField] Camera mainCamera = default;
+    [SerializeField] GameManager gameManager = default;
     Vector3 cameraForward;
 
     private void Start()
@@ -27,6 +28,7 @@ public class PlayerManager : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         latestPos = this.transform.position;
+        playerUIManager = GameObject.Find("PlayerUICanvas").GetComponent<PlayerUIManager>();
     }
 
     private void Update()
@@ -44,12 +46,6 @@ public class PlayerManager : MonoBehaviour
         if(playerHP <= 0)
         {
             GameOver();
-        }
-
-        // 入り口のゲート開閉のためにプレイヤーのz位置を設定
-        if(this.transform.position.z <= -2.68)
-        {
-            gate.GetComponent<Animator>().SetTrigger("Close");
         }
     }
 

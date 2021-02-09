@@ -19836,7 +19836,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf070cfe59744d53860e1e2cb31e9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSpeed: 0.1
   isFadeOut: 1
+  isFadeIn: 1
 --- !u!95 &1392330733
 Animator:
   serializedVersion: 3
@@ -32135,7 +32137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &8530989026698033539
 BoxCollider:
   m_ObjectHideFlags: 0

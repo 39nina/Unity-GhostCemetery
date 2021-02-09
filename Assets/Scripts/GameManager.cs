@@ -11,22 +11,45 @@ public class GameManager : MonoBehaviour
     public List<bool> Lights = new List<bool>();
     int number;  // リストLightの何番目まで入ってるか（いくつ点灯済か）
     [SerializeField] DungeonEntranceManager dungeonEntranceManager = default;
-    [SerializeField] GameObject player = default;
+    GameObject player = default;
     [SerializeField] GameObject RetryButton1 = default;
     [SerializeField] GameObject RetryButton2 = default;
     [SerializeField] Text CandleNumberUI = default;
     [SerializeField] GameObject clearIcon = default;
+    [SerializeField] AudioSource audioSource = default;
     int currentNumber = 0;
+    bool isBGMFadeOut = false;
     GameObject zombieDeathEffect;
     zombieBGMManager zombieBGMManager;
     [SerializeField] FadeController fadeController;
+    [SerializeField] PlayerManager playerManager = default;
+    GameObject mainCamera;
+    GameObject PlayerUI;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
+        mainCamera = GameObject.Find("Main Camera");
+        PlayerUI = GameObject.Find("PlayerUICanvas");
+
         // ZombieBattleSceneでは、ゾンビBGMを取得
-        if(CandleNumberUI.text == "13")
+        if (CandleNumberUI.text == "13")
         {
             zombieBGMManager = GameObject.Find("BGM").GetComponent<zombieBGMManager>();
+        }
+
+        // ゴーストのシーンではプレイヤーとカメラを破壊しないよう設定、ゾンビのシーンではリトライに向けて設定を解除
+        if(SceneManager.GetActiveScene().name == "cemetery")
+        {
+            DontDestroyOnLoad(player);
+            DontDestroyOnLoad(mainCamera);
+            DontDestroyOnLoad(PlayerUI);
+        }
+        if(SceneManager.GetActiveScene().name == "ZombieBattleScene")
+        {
+            SceneManager.MoveGameObjectToScene(player, SceneManager.GetActiveScene());
+            SceneManager.MoveGameObjectToScene(mainCamera, SceneManager.GetActiveScene());
+            SceneManager.MoveGameObjectToScene(PlayerUI, SceneManager.GetActiveScene());
         }
     }
 
@@ -46,6 +69,12 @@ public class GameManager : MonoBehaviour
             // フェードアウトしたあとにゾンビ登場ムービーに遷移
             Invoke("FadeOutToZombieScene", 2.8f);
             Invoke("LoatToAppearZombie", 3.3f);
+        }
+
+        // ゾンビ登場シーンに遷移する際にBGMフェードアウト
+        if (isBGMFadeOut)
+        {
+            audioSource.volume *= 0.97f;
         }
 
         // プレイヤーが消失したら、数秒後にゲームオーバーメソッドを表示
@@ -123,9 +152,11 @@ public class GameManager : MonoBehaviour
     void ActiveClearIcon()
     {
         clearIcon.SetActive(true);
+        isBGMFadeOut = true;
     }
     void FadeOutToZombieScene()
     {
+        // 画面とBGMをフェードアウト
         fadeController.StartFadeOut();
     }
     void LoatToAppearZombie()

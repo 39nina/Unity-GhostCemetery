@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] GameObject player = default;
+    GameObject player;
+    GameObject mainCamera;
     Vector3 offset;
     Vector3 angle;
     float rotateSpeed = 1.3f;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
+        mainCamera = GameObject.Find("Main Camera");
+
         // プレイヤーとカメラの距離を計測
         offset = this.transform.position - player.transform.position;
-    }
-
-    private void Update()
-    {
-
     }
 
     private void FixedUpdate()

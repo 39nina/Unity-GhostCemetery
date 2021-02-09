@@ -16534,7 +16534,10 @@ MonoBehaviour:
   RetryButton2: {fileID: 1902432953}
   CandleNumberUI: {fileID: 44385950}
   clearIcon: {fileID: 840403523}
+  audioSource: {fileID: 1884661813}
   fadeController: {fileID: 1863618934}
+  playerManager: {fileID: 9084417736761922546}
+  mainCamera: {fileID: 1626421295}
 --- !u!4 &1185123170
 Transform:
   m_ObjectHideFlags: 0
@@ -23891,7 +23894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60dd89f7e0fe48c9b951c25d4892d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8530989026698033537}
 --- !u!20 &1626421299
 Camera:
   m_ObjectHideFlags: 0
@@ -33012,3 +33014,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3be911d2339bc439297932a372dfbf49, type: 3}
+--- !u!114 &9084417736761922546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 609811820989164147, guid: 3be911d2339bc439297932a372dfbf49,
+    type: 3}
+  m_PrefabInstance: {fileID: 9084417736761922545}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530989026698033537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258ce4e8a8484467abc79755cc142c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

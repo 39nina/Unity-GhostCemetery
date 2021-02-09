@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ZombieManager : MonoBehaviour {
 
 	public GameObject zombie;
-    public GameObject player;
+    GameObject player;
     public AnimationClip IdleAnim;
 	public AnimationClip RunAnim;
 	public AnimationClip AttackAnim;
@@ -34,6 +34,7 @@ public class ZombieManager : MonoBehaviour {
     {
         agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
+        player = GameObject.Find("Player");
     }
 	
 	void Update() {

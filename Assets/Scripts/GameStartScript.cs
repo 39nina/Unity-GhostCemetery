@@ -29,6 +29,6 @@ public class GameStartScript : MonoBehaviour
 
     void GameStart()
     {
-        SceneManager.LoadScene("cemetery");
+        SceneManager.LoadScene("GhostAppearScene");
     }
 }

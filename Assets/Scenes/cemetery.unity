@@ -16529,7 +16529,6 @@ MonoBehaviour:
   GameClearPanel: {fileID: 649192182}
   Lights: 
   dungeonEntranceManager: {fileID: 1222527047}
-  player: {fileID: 8530989026698033537}
   RetryButton1: {fileID: 2104995535}
   RetryButton2: {fileID: 1902432953}
   CandleNumberUI: {fileID: 44385950}
@@ -16537,7 +16536,6 @@ MonoBehaviour:
   audioSource: {fileID: 1884661813}
   fadeController: {fileID: 1863618934}
   playerManager: {fileID: 9084417736761922546}
-  mainCamera: {fileID: 1626421295}
 --- !u!4 &1185123170
 Transform:
   m_ObjectHideFlags: 0
@@ -28025,7 +28023,7 @@ RectTransform:
   m_GameObject: {fileID: 1863618932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 384250254}
   m_RootOrder: 3

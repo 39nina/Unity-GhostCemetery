@@ -118,7 +118,10 @@ public class GameManager : MonoBehaviour
     // ゲームオーバー画面を表示するメソッド
     public void ShowGameOver()
     {
-        zombieBGMManager.ZombieBGMStop();
+        if (zombieBGMManager)
+        {
+            zombieBGMManager.ZombieBGMStop();
+        }
         GameOverPanel.SetActive(true);
     }
 
